@@ -15,16 +15,30 @@ namespace FileWork_1
     
     public partial class Form1 : Form
     {
-        
+        static public string FileNameFullNamePart
+        {
+            get; private set;
+        }
         public Form1()
         {
             InitializeComponent();
             
         }
-        private void AddFullNamePart(string FaileName, string fullNamePart)
+        static public void AddFullNamePart(string FileName, string fullNamePart)
         {
-            StreamWriter streamWriter = new StreamWriter(FaileName,true);
-            streamWriter.WriteLine();
+            bool nullString=false;
+            StreamReader streamReader = new StreamReader(FileName);
+            
+            if (streamReader.ReadToEnd() == "")
+            {
+                nullString = true;
+            }
+            streamReader.Close();
+            StreamWriter streamWriter = new StreamWriter(FileName,true);
+            if (!nullString)
+            {
+                streamWriter.WriteLine();
+            }
             streamWriter.Write(fullNamePart);
             streamWriter.Close();
         }
@@ -102,8 +116,12 @@ namespace FileWork_1
 
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
-            
-            AddFullNamePart(Constants.FILE_SURNAME, cBSurname.Text);
+            fmAddFullNamePart fmAddFullNamePart = new fmAddFullNamePart();
+            FileNameFullNamePart = Constants.FILE_SURNAME;
+            fmAddFullNamePart.Text = "Добавление Фамилии";
+            fmAddFullNamePart.label1.Text = "Введите фамилию";
+            fmAddFullNamePart.Show();
+           
         }
 
         private void btnMidlenameAdd_Click(object sender, EventArgs e)

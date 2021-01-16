@@ -16,5 +16,24 @@ namespace FileWork_1
         {
             InitializeComponent();
         }
+
+        private void fmAddFullNamePart_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text!="")
+            {
+                Form1.AddFullNamePart(Form1.FileNameFullNamePart, textBox1.Text);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Не введены данные!");
+            }
+            
+        }
     }
 }
