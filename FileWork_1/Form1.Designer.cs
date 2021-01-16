@@ -97,7 +97,7 @@
             this.lBHumansList.FormattingEnabled = true;
             this.lBHumansList.Location = new System.Drawing.Point(13, 177);
             this.lBHumansList.Name = "lBHumansList";
-            this.lBHumansList.Size = new System.Drawing.Size(149, 134);
+            this.lBHumansList.Size = new System.Drawing.Size(276, 134);
             this.lBHumansList.TabIndex = 2;
             // 
             // btnWritePerson
@@ -144,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 403);
+            this.ClientSize = new System.Drawing.Size(306, 338);
             this.Controls.Add(this.btnMidlenameAdd);
             this.Controls.Add(this.btnSurameAdd);
             this.Controls.Add(this.btnNameAdd);

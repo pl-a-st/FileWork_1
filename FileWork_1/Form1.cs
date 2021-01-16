@@ -102,6 +102,7 @@ namespace FileWork_1
 
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
+            
             AddFullNamePart(Constants.FILE_SURNAME, cBSurname.Text);
         }
 
