@@ -140,7 +140,7 @@
             this.btnMidlenameAdd.UseVisualStyleBackColor = true;
             this.btnMidlenameAdd.Click += new System.EventHandler(this.btnMidlenameAdd_Click);
             // 
-            // Form1
+            // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,7 +156,8 @@
             this.Controls.Add(this.cBMiddleName);
             this.Controls.Add(this.cBName);
             this.Controls.Add(this.cBSurname);
-            this.Name = "Form1";
+            this.Name = "FmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

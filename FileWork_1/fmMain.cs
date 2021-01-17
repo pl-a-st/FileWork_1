@@ -92,9 +92,9 @@ namespace FileWork_1
         private void btnWritePerson_Click(object sender, EventArgs e)
         {
             string fullName = cBSurname.Text + " " + cBName.Text + " " + cBMiddleName.Text;
-            foreach (string fullNamePersone in lBHumansList.Items)
+            foreach (string fullNameInLbHumanList in lBHumansList.Items)
             {
-                if (fullNamePersone == fullName)
+                if (fullNameInLbHumanList == fullName)
                 {
                     MessageBox.Show("Такой товарищ уже внесен в список");
                     return;
