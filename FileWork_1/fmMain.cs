@@ -13,34 +13,43 @@ using System.Windows.Forms;
 namespace FileWork_1
 {
     
-    public partial class Form1 : Form
+    public partial class FmMain : Form
     {
         static public string FileNameFullNamePart
         {
             get; private set;
         }
-        public Form1()
+        public FmMain()
         {
+            Program.fmMain = this;
             InitializeComponent();
             
         }
-        static public void AddFullNamePart(string FileName, string fullNamePart)
+        public ComboBox returncBName()
         {
-            bool nullString=false;
-            StreamReader streamReader = new StreamReader(FileName);
-            
-            if (streamReader.ReadToEnd() == "")
-            {
-                nullString = true;
-            }
-            streamReader.Close();
-            StreamWriter streamWriter = new StreamWriter(FileName,true);
-            if (!nullString)
-            {
-                streamWriter.WriteLine();
-            }
-            streamWriter.Write(fullNamePart);
-            streamWriter.Close();
+            return cBName;
+        }
+        public ComboBox returncBSurname()
+        {
+            return cBSurname;
+        }
+        public ComboBox returncBMiddleName()
+        {
+            return cBMiddleName;
+        }
+        static public Form returnFmMain()
+        {
+            return FmMain.ActiveForm;
+        }
+        /// <summary>
+        //// Записывает часть имени в соответствыующий файл и добавляет в комбобокс
+        /// </summary>
+        /// <param name="FileName">Имя файла</param>
+        /// <param name="fullNamePart">Часть имени</param>
+        public void AddFullNamePart(string FileName, string fullNamePart)
+        {
+           
+           
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -56,12 +65,13 @@ namespace FileWork_1
                 }
                 streamReader.Close();
             }
+            
             WriteCombobox(Constants.FILE_NAME, cBName);
             WriteCombobox(Constants.FILE_SURNAME, cBSurname);
             WriteCombobox(Constants.FILE_MIDDLENAME, cBMiddleName);
 
         }
-        private void WriteCombobox(string fileName,ComboBox comboBox)
+        static public void WriteCombobox(string fileName,ComboBox comboBox)
         {
             if (File.Exists(fileName))
             {
@@ -111,22 +121,29 @@ namespace FileWork_1
 
         private void btnNameAdd_Click(object sender, EventArgs e)
         {
-            AddFullNamePart(Constants.FILE_NAME, cBName.Text);
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
+            FileNameFullNamePart = Constants.FILE_NAME;
+            fmAddFullNamePart.Text = "Добавление Имени";
+            fmAddFullNamePart.label1.Text = "Введите имя";
+            fmAddFullNamePart.ShowDialog();
         }
 
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
-            fmAddFullNamePart fmAddFullNamePart = new fmAddFullNamePart();
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             FileNameFullNamePart = Constants.FILE_SURNAME;
             fmAddFullNamePart.Text = "Добавление Фамилии";
             fmAddFullNamePart.label1.Text = "Введите фамилию";
-            fmAddFullNamePart.Show();
-           
+            fmAddFullNamePart.ShowDialog();
         }
 
         private void btnMidlenameAdd_Click(object sender, EventArgs e)
         {
-            AddFullNamePart(Constants.FILE_MIDDLENAME, cBMiddleName.Text);
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
+            FileNameFullNamePart = Constants.FILE_MIDDLENAME;
+            fmAddFullNamePart.Text = "Добавление Отчества";
+            fmAddFullNamePart.label1.Text = "Введите отчество";
+            fmAddFullNamePart.ShowDialog();
         }
     }
 }

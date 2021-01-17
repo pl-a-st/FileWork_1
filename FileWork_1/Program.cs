@@ -8,6 +8,7 @@ namespace FileWork_1
 {
     static class Program
     {
+        public static FmMain fmMain;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,7 @@ namespace FileWork_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FmMain());
         }
     }
 }

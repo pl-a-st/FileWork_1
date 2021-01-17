@@ -1,6 +1,6 @@
 ﻿namespace FileWork_1
 {
-    partial class Form1
+    partial class FmMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.

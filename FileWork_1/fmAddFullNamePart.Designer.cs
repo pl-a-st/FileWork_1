@@ -1,6 +1,6 @@
 ﻿namespace FileWork_1
 {
-    partial class fmAddFullNamePart
+    partial class FmAddFullNamePart
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddFullNamePart = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,15 +50,15 @@
             this.textBox1.Size = new System.Drawing.Size(130, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // button1
+            // btnAddFullNamePart
             // 
-            this.button1.Location = new System.Drawing.Point(148, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddFullNamePart.Location = new System.Drawing.Point(148, 23);
+            this.btnAddFullNamePart.Name = "btnAddFullNamePart";
+            this.btnAddFullNamePart.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFullNamePart.TabIndex = 2;
+            this.btnAddFullNamePart.Text = "Добавить";
+            this.btnAddFullNamePart.UseVisualStyleBackColor = true;
+            this.btnAddFullNamePart.Click += new System.EventHandler(this.btnAddFullNamePart_Click);
             // 
             // btnCancel
             // 
@@ -69,16 +69,16 @@
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // fmAddFullNamePart
+            // FmAddFullNamePart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 67);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddFullNamePart);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "fmAddFullNamePart";
+            this.Name = "FmAddFullNamePart";
             this.Text = "Добавление";
             this.Load += new System.EventHandler(this.fmAddFullNamePart_Load);
             this.ResumeLayout(false);
@@ -90,7 +90,7 @@
 
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnAddFullNamePart;
         public System.Windows.Forms.Button btnCancel;
     }
 }
