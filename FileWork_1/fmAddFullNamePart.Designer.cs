@@ -68,6 +68,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FmAddFullNamePart
             // 
@@ -81,7 +82,6 @@
             this.Name = "FmAddFullNamePart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
-            this.Load += new System.EventHandler(this.fmAddFullNamePart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

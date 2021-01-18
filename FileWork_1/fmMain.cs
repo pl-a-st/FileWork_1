@@ -15,45 +15,33 @@ namespace FileWork_1
     
     public partial class FmMain : Form
     {
+        /// <summary>
+        /// Поле для передачи имени файла для сохранения
+        /// </summary>
         static public string FileNameFullNamePart
         {
             get; private set;
         }
         public FmMain()
         {
-            Program.fmMain = this;
+            Program.fmMain = this; //в fmMain помещаем эту форму
             InitializeComponent();
-            
         }
-        public ComboBox returncBName()
+        
+        public ComboBox GetCbName()
         {
             return cBName;
         }
-        public ComboBox returncBSurname()
+        public ComboBox GetCbSurname()
         {
             return cBSurname;
         }
-        public ComboBox returncBMiddleName()
+        public ComboBox GetCbMiddleName()
         {
             return cBMiddleName;
         }
-        static public Form returnFmMain()
-        {
-            return FmMain.ActiveForm;
-        }
-        /// <summary>
-        //// Записывает часть имени в соответствыующий файл и добавляет в комбобокс
-        /// </summary>
-        /// <param name="FileName">Имя файла</param>
-        /// <param name="fullNamePart">Часть имени</param>
-        public void AddFullNamePart(string FileName, string fullNamePart)
-        {
-           
-           
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
-
             lBHumansList.Items.Clear();
             if (File.Exists(Constants.FILE_HUMANS_LIST))
             {
@@ -65,11 +53,9 @@ namespace FileWork_1
                 }
                 streamReader.Close();
             }
-            
             WriteCombobox(Constants.FILE_NAME, cBName);
             WriteCombobox(Constants.FILE_SURNAME, cBSurname);
             WriteCombobox(Constants.FILE_MIDDLENAME, cBMiddleName);
-
         }
         static public void WriteCombobox(string fileName,ComboBox comboBox)
         {
@@ -100,25 +86,19 @@ namespace FileWork_1
                     return;
                 }
             }
-            lBHumansList.Items.Add(fullName);
+           
             try
             {
+                lBHumansList.Items.Add(fullName);
                 StreamWriter streamWriter = new StreamWriter(Constants.FILE_HUMANS_LIST,true);
                 streamWriter.WriteLine(fullName);
                 streamWriter.Close();
             }
             catch
             {
-
+                MessageBox.Show("Не удалось сорхранить товарища. Файл для сохранения не доступен.");
             }
-
         }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void btnNameAdd_Click(object sender, EventArgs e)
         {
             FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
@@ -127,7 +107,6 @@ namespace FileWork_1
             fmAddFullNamePart.label1.Text = "Введите имя";
             fmAddFullNamePart.ShowDialog();
         }
-
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
             FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
