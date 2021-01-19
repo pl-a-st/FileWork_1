@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace FileWork_1
 {
-    
+
     public partial class FmMain : Form
     {
         /// <summary>
@@ -22,12 +22,29 @@ namespace FileWork_1
         {
             get; private set;
         }
+        public enum Gender
+        {
+            mail,
+            femail
+        }
+        public Gender GenderPersone
+        {
+            get; private set;
+        }
+        public void SetGenderMail()
+        {
+            GenderPersone = Gender.mail;
+        }
+        public void SetGenderFeMail()
+        {
+            GenderPersone = Gender.femail;
+        }
         public FmMain()
         {
             Program.fmMain = this; //в fmMain помещаем эту форму
             InitializeComponent();
         }
-        
+
         public ComboBox GetCbName()
         {
             return cBName;
@@ -57,7 +74,7 @@ namespace FileWork_1
             WriteCombobox(Constants.FILE_SURNAME, cBSurname);
             WriteCombobox(Constants.FILE_MIDDLENAME, cBMiddleName);
         }
-        static public void WriteCombobox(string fileName,ComboBox comboBox)
+        static public void WriteCombobox(string fileName, ComboBox comboBox)
         {
             if (File.Exists(fileName))
             {
@@ -86,11 +103,11 @@ namespace FileWork_1
                     return;
                 }
             }
-           
+
             try
             {
                 lBHumansList.Items.Add(fullName);
-                StreamWriter streamWriter = new StreamWriter(Constants.FILE_HUMANS_LIST,true);
+                StreamWriter streamWriter = new StreamWriter(Constants.FILE_HUMANS_LIST, true);
                 streamWriter.WriteLine(fullName);
                 streamWriter.Close();
             }

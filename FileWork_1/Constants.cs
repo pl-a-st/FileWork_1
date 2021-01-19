@@ -12,5 +12,6 @@ namespace FileWork_1
         public static string FILE_SURNAME = "Surnames.txt";
         public static string FILE_MIDDLENAME = "Middlenames.txt";
         public static string FILE_HUMANS_LIST = "Humans List.txt";
+        
     }
 }
