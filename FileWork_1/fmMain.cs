@@ -141,5 +141,15 @@ namespace FileWork_1
             fmAddFullNamePart.label1.Text = "Введите отчество";
             fmAddFullNamePart.ShowDialog();
         }
+
+        private void RBMail_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGenderMail();
+        }
+
+        private void Gender_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGenderFeMail();
+        }
     }
 }

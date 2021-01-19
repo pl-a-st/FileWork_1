@@ -39,6 +39,8 @@
             this.btnNameAdd = new System.Windows.Forms.Button();
             this.btnSurameAdd = new System.Windows.Forms.Button();
             this.btnMidlenameAdd = new System.Windows.Forms.Button();
+            this.RBMail = new System.Windows.Forms.RadioButton();
+            this.RBFemaill = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // cBSurname
@@ -102,7 +104,7 @@
             // 
             // btnWritePerson
             // 
-            this.btnWritePerson.Location = new System.Drawing.Point(183, 36);
+            this.btnWritePerson.Location = new System.Drawing.Point(183, 94);
             this.btnWritePerson.Name = "btnWritePerson";
             this.btnWritePerson.Size = new System.Drawing.Size(106, 50);
             this.btnWritePerson.TabIndex = 3;
@@ -140,11 +142,37 @@
             this.btnMidlenameAdd.UseVisualStyleBackColor = true;
             this.btnMidlenameAdd.Click += new System.EventHandler(this.btnMidlenameAdd_Click);
             // 
+            // RBMail
+            // 
+            this.RBMail.AutoSize = true;
+            this.RBMail.Checked = true;
+            this.RBMail.Location = new System.Drawing.Point(183, 34);
+            this.RBMail.Name = "RBMail";
+            this.RBMail.Size = new System.Drawing.Size(72, 17);
+            this.RBMail.TabIndex = 5;
+            this.RBMail.TabStop = true;
+            this.RBMail.Text = "Мужчины";
+            this.RBMail.UseVisualStyleBackColor = true;
+            this.RBMail.CheckedChanged += new System.EventHandler(this.RBMail_CheckedChanged);
+            // 
+            // RBFemaill
+            // 
+            this.RBFemaill.AutoSize = true;
+            this.RBFemaill.Location = new System.Drawing.Point(183, 57);
+            this.RBFemaill.Name = "RBFemaill";
+            this.RBFemaill.Size = new System.Drawing.Size(77, 17);
+            this.RBFemaill.TabIndex = 6;
+            this.RBFemaill.Text = "Женщины";
+            this.RBFemaill.UseVisualStyleBackColor = true;
+            this.RBFemaill.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 338);
+            this.Controls.Add(this.RBFemaill);
+            this.Controls.Add(this.RBMail);
             this.Controls.Add(this.btnMidlenameAdd);
             this.Controls.Add(this.btnSurameAdd);
             this.Controls.Add(this.btnNameAdd);
@@ -159,7 +187,6 @@
             this.Name = "FmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-      
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,6 +206,8 @@
         private System.Windows.Forms.Button btnNameAdd;
         private System.Windows.Forms.Button btnSurameAdd;
         private System.Windows.Forms.Button btnMidlenameAdd;
+        private System.Windows.Forms.RadioButton RBMail;
+        private System.Windows.Forms.RadioButton RBFemaill;
     }
 }
 
