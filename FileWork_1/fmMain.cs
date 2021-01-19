@@ -39,6 +39,30 @@ namespace FileWork_1
         {
             GenderPersone = Gender.femail;
         }
+        public string FileNames
+        {
+            get; private set;
+        }
+        public void SetFileNames(string fileNames)
+        {
+            FileNames = fileNames;
+        }
+        public string FileSurnames
+        {
+            get; private set;
+        }
+        public void SetFileSurnames(string fileNames)
+        {
+            FileSurnames = fileNames;
+        }
+        public string FileMiddlenames
+        {
+            get; private set;
+        }
+        public void SetFileMiddlenames(string fileNames)
+        {
+            FileMiddlenames = fileNames;
+        }
         public FmMain()
         {
             Program.fmMain = this; //в fmMain помещаем эту форму
@@ -70,15 +94,17 @@ namespace FileWork_1
                 }
                 streamReader.Close();
             }
-            WriteCombobox(Constants.FILE_NAME, cBName);
-            WriteCombobox(Constants.FILE_SURNAME, cBSurname);
-            WriteCombobox(Constants.FILE_MIDDLENAME, cBMiddleName);
+            //WriteCombobox(FileNames, cBName);
+            //WriteCombobox(FileSurnames, cBSurname);
+            //WriteCombobox(FileMiddlenames, cBMiddleName);
+            RBMail.Checked=true;
         }
         static public void WriteCombobox(string fileName, ComboBox comboBox)
         {
+            comboBox.Items.Clear();
+            comboBox.Text = "";
             if (File.Exists(fileName))
             {
-                comboBox.Items.Clear();
                 StreamReader streamReader = new StreamReader(fileName);
                 while (!streamReader.EndOfStream)
                 {
@@ -119,7 +145,7 @@ namespace FileWork_1
         private void btnNameAdd_Click(object sender, EventArgs e)
         {
             FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
-            FileNameFullNamePart = Constants.FILE_NAME;
+            FileNameFullNamePart = FileNames;
             fmAddFullNamePart.Text = "Добавление Имени";
             fmAddFullNamePart.label1.Text = "Введите имя";
             fmAddFullNamePart.ShowDialog();
@@ -127,7 +153,7 @@ namespace FileWork_1
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
             FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
-            FileNameFullNamePart = Constants.FILE_SURNAME;
+            FileNameFullNamePart = FileSurnames;
             fmAddFullNamePart.Text = "Добавление Фамилии";
             fmAddFullNamePart.label1.Text = "Введите фамилию";
             fmAddFullNamePart.ShowDialog();
@@ -136,7 +162,7 @@ namespace FileWork_1
         private void btnMidlenameAdd_Click(object sender, EventArgs e)
         {
             FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
-            FileNameFullNamePart = Constants.FILE_MIDDLENAME;
+            FileNameFullNamePart = FileMiddlenames;
             fmAddFullNamePart.Text = "Добавление Отчества";
             fmAddFullNamePart.label1.Text = "Введите отчество";
             fmAddFullNamePart.ShowDialog();
@@ -144,12 +170,41 @@ namespace FileWork_1
 
         private void RBMail_CheckedChanged(object sender, EventArgs e)
         {
-            SetGenderMail();
+            if (RBMail.Checked)
+            {
+                SetGenderMail();
+                ChangeFileName();
+                WriteCombobox(FileNames, cBName);
+                WriteCombobox(FileSurnames, cBSurname);
+                WriteCombobox(FileMiddlenames, cBMiddleName);
+            }
         }
 
-        private void Gender_CheckedChanged(object sender, EventArgs e)
+        private void RBFemaill_CheckedChanged(object sender, EventArgs e)
         {
-            SetGenderFeMail();
+            if(RBFemaill.Checked)
+            {
+                SetGenderFeMail();
+                ChangeFileName();
+                WriteCombobox(FileNames, cBName);
+                WriteCombobox(FileSurnames, cBSurname);
+                WriteCombobox(FileMiddlenames, cBMiddleName);
+            }
+        }
+        private void ChangeFileName()
+        {
+            if (GenderPersone == Gender.mail)
+            {
+                SetFileNames(Constants.FILE_NAME);
+                SetFileSurnames(Constants.FILE_SURNAME);
+                SetFileMiddlenames(Constants.FILE_MIDDLENAME);
+            }
+            if (GenderPersone == Gender.femail)
+            {
+                SetFileNames(Constants.FILE_NAME_WOOMEN);
+                SetFileSurnames(Constants.FILE_SURNAME_WOOMEN);
+                SetFileMiddlenames(Constants.FILE_MIDDLENAME_WOOMEN);
+            }
         }
     }
 }

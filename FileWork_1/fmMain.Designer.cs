@@ -145,12 +145,10 @@
             // RBMail
             // 
             this.RBMail.AutoSize = true;
-            this.RBMail.Checked = true;
             this.RBMail.Location = new System.Drawing.Point(183, 34);
             this.RBMail.Name = "RBMail";
             this.RBMail.Size = new System.Drawing.Size(72, 17);
             this.RBMail.TabIndex = 5;
-            this.RBMail.TabStop = true;
             this.RBMail.Text = "Мужчины";
             this.RBMail.UseVisualStyleBackColor = true;
             this.RBMail.CheckedChanged += new System.EventHandler(this.RBMail_CheckedChanged);
@@ -164,7 +162,7 @@
             this.RBFemaill.TabIndex = 6;
             this.RBFemaill.Text = "Женщины";
             this.RBFemaill.UseVisualStyleBackColor = true;
-            this.RBFemaill.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
+            this.RBFemaill.CheckedChanged += new System.EventHandler(this.RBFemaill_CheckedChanged);
             // 
             // FmMain
             // 

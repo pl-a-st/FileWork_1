@@ -33,19 +33,19 @@ namespace FileWork_1
         }
         private void AddFullNamePartInComboBox()
         {
-            if (FmMain.FileNameFullNamePart == Constants.FILE_NAME)
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileNames)
             {
-                FmMain.WriteCombobox(Constants.FILE_NAME, Program.fmMain.GetCbName());
+                FmMain.WriteCombobox(Program.fmMain.FileNames, Program.fmMain.GetCbName());
                 Program.fmMain.GetCbName().Text = textBox1.Text;
             }
-            if (FmMain.FileNameFullNamePart == Constants.FILE_SURNAME)
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileSurnames)
             {
-                FmMain.WriteCombobox(Constants.FILE_SURNAME, Program.fmMain.GetCbSurname());
+                FmMain.WriteCombobox(Program.fmMain.FileSurnames, Program.fmMain.GetCbSurname());
                 Program.fmMain.GetCbSurname().Text = textBox1.Text;
             }
-            if (FmMain.FileNameFullNamePart == Constants.FILE_MIDDLENAME)
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileMiddlenames)
             {
-                FmMain.WriteCombobox(Constants.FILE_MIDDLENAME, Program.fmMain.GetCbMiddleName());
+                FmMain.WriteCombobox(Program.fmMain.FileMiddlenames, Program.fmMain.GetCbMiddleName());
                 Program.fmMain.GetCbMiddleName().Text = textBox1.Text;
             }
         }
@@ -95,6 +95,24 @@ namespace FileWork_1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            btnAddFullNamePart.PerformClick();
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter && textBox1.Text!="")
+            {
+                btnAddFullNamePart.PerformClick();
+            }
+            if (e.KeyCode==Keys.Escape)
+            {
+                btnCancel.PerformClick();
+            }
+            
         }
     }
 }
