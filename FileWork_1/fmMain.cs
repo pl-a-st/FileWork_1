@@ -99,6 +99,11 @@ namespace FileWork_1
             //WriteCombobox(FileMiddlenames, cBMiddleName);
             RBMail.Checked=true;
         }
+        /// <summary>
+        /// Запиcывает в передаваемый ComboBox данные из передаваемого файла
+        /// </summary>
+        /// <param name="fileName">Файл с данными для ComboBox</param>
+        /// <param name="comboBox">передаваемый ComboBox</param>
         static public void WriteCombobox(string fileName, ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -167,7 +172,11 @@ namespace FileWork_1
             fmAddFullNamePart.label1.Text = "Введите отчество";
             fmAddFullNamePart.ShowDialog();
         }
-
+        /// <summary>
+        /// ПО поставленному RadianBaton устанавливаем пол, устанавливаем соответствующие файлы, записываем соответствующие кобобоксы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RBMail_CheckedChanged(object sender, EventArgs e)
         {
             if (RBMail.Checked)
@@ -191,6 +200,9 @@ namespace FileWork_1
                 WriteCombobox(FileMiddlenames, cBMiddleName);
             }
         }
+        /// <summary>
+        /// Устанавливает имена файлов для мужчин и для женщин
+        /// </summary>
         private void ChangeFileName()
         {
             if (GenderPersone == Gender.mail)
@@ -201,10 +213,15 @@ namespace FileWork_1
             }
             if (GenderPersone == Gender.femail)
             {
-                SetFileNames(Constants.FILE_NAME_WOOMEN);
+                SetFileNames(Constants.FILE_NAME_WOOMEN); 
                 SetFileSurnames(Constants.FILE_SURNAME_WOOMEN);
                 SetFileMiddlenames(Constants.FILE_MIDDLENAME_WOOMEN);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lBHumansList.SelectedItem.ToString());
         }
     }
 }

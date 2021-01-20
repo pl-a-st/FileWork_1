@@ -41,6 +41,10 @@
             this.btnMidlenameAdd = new System.Windows.Forms.Button();
             this.RBMail = new System.Windows.Forms.RadioButton();
             this.RBFemaill = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSurnameRemove = new System.Windows.Forms.Button();
+            this.btnNameRemove = new System.Windows.Forms.Button();
+            this.btnMidlenameRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cBSurname
@@ -104,7 +108,7 @@
             // 
             // btnWritePerson
             // 
-            this.btnWritePerson.Location = new System.Drawing.Point(183, 94);
+            this.btnWritePerson.Location = new System.Drawing.Point(217, 96);
             this.btnWritePerson.Name = "btnWritePerson";
             this.btnWritePerson.Size = new System.Drawing.Size(106, 50);
             this.btnWritePerson.TabIndex = 3;
@@ -145,7 +149,7 @@
             // RBMail
             // 
             this.RBMail.AutoSize = true;
-            this.RBMail.Location = new System.Drawing.Point(183, 34);
+            this.RBMail.Location = new System.Drawing.Point(217, 36);
             this.RBMail.Name = "RBMail";
             this.RBMail.Size = new System.Drawing.Size(72, 17);
             this.RBMail.TabIndex = 5;
@@ -156,7 +160,7 @@
             // RBFemaill
             // 
             this.RBFemaill.AutoSize = true;
-            this.RBFemaill.Location = new System.Drawing.Point(183, 57);
+            this.RBFemaill.Location = new System.Drawing.Point(217, 59);
             this.RBFemaill.Name = "RBFemaill";
             this.RBFemaill.Size = new System.Drawing.Size(77, 17);
             this.RBFemaill.TabIndex = 6;
@@ -164,14 +168,55 @@
             this.RBFemaill.UseVisualStyleBackColor = true;
             this.RBFemaill.CheckedChanged += new System.EventHandler(this.RBFemaill_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(74, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSurnameRemove
+            // 
+            this.btnSurnameRemove.Location = new System.Drawing.Point(163, 34);
+            this.btnSurnameRemove.Name = "btnSurnameRemove";
+            this.btnSurnameRemove.Size = new System.Drawing.Size(22, 23);
+            this.btnSurnameRemove.TabIndex = 4;
+            this.btnSurnameRemove.Text = "-";
+            this.btnSurnameRemove.UseVisualStyleBackColor = true;
+            // 
+            // btnNameRemove
+            // 
+            this.btnNameRemove.Location = new System.Drawing.Point(163, 83);
+            this.btnNameRemove.Name = "btnNameRemove";
+            this.btnNameRemove.Size = new System.Drawing.Size(22, 23);
+            this.btnNameRemove.TabIndex = 4;
+            this.btnNameRemove.Text = "-";
+            this.btnNameRemove.UseVisualStyleBackColor = true;
+            // 
+            // btnMidlenameRemove
+            // 
+            this.btnMidlenameRemove.Location = new System.Drawing.Point(163, 131);
+            this.btnMidlenameRemove.Name = "btnMidlenameRemove";
+            this.btnMidlenameRemove.Size = new System.Drawing.Size(22, 23);
+            this.btnMidlenameRemove.TabIndex = 4;
+            this.btnMidlenameRemove.Text = "-";
+            this.btnMidlenameRemove.UseVisualStyleBackColor = true;
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 338);
+            this.ClientSize = new System.Drawing.Size(356, 406);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.RBFemaill);
             this.Controls.Add(this.RBMail);
             this.Controls.Add(this.btnMidlenameAdd);
+            this.Controls.Add(this.btnMidlenameRemove);
+            this.Controls.Add(this.btnNameRemove);
+            this.Controls.Add(this.btnSurnameRemove);
             this.Controls.Add(this.btnSurameAdd);
             this.Controls.Add(this.btnNameAdd);
             this.Controls.Add(this.btnWritePerson);
@@ -206,6 +251,10 @@
         private System.Windows.Forms.Button btnMidlenameAdd;
         private System.Windows.Forms.RadioButton RBMail;
         private System.Windows.Forms.RadioButton RBFemaill;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSurnameRemove;
+        private System.Windows.Forms.Button btnNameRemove;
+        private System.Windows.Forms.Button btnMidlenameRemove;
     }
 }
 

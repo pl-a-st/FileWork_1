@@ -31,6 +31,9 @@ namespace FileWork_1
             }
             
         }
+        /// <summary>
+        /// Определяет в какой комбобокс записать текущий, назначенный файл
+        /// </summary>
         private void AddFullNamePartInComboBox()
         {
             if (FmMain.FileNameFullNamePart == Program.fmMain.FileNames)
@@ -49,6 +52,10 @@ namespace FileWork_1
                 Program.fmMain.GetCbMiddleName().Text = textBox1.Text;
             }
         }
+        /// <summary>
+        /// Отправляет часть полного имени в соответствующий файл
+        /// </summary>
+        /// <param name="textBoxText">часть имени для записи в файл</param>
         private void AddFullNamePartInFile(string textBoxText)
         {
             bool nullString = true;
@@ -112,7 +119,6 @@ namespace FileWork_1
             {
                 btnCancel.PerformClick();
             }
-            
         }
     }
 }
