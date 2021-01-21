@@ -94,9 +94,7 @@ namespace FileWork_1
                 }
                 streamReader.Close();
             }
-            //WriteCombobox(FileNames, cBName);
-            //WriteCombobox(FileSurnames, cBSurname);
-            //WriteCombobox(FileMiddlenames, cBMiddleName);
+            
             RBMail.Checked=true;
         }
         /// <summary>
@@ -149,16 +147,16 @@ namespace FileWork_1
         }
         private void btnNameAdd_Click(object sender, EventArgs e)
         {
-            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             FileNameFullNamePart = FileNames;
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             fmAddFullNamePart.Text = "Добавление Имени";
             fmAddFullNamePart.label1.Text = "Введите имя";
             fmAddFullNamePart.ShowDialog();
         }
         private void btnSurameAdd_Click(object sender, EventArgs e)
         {
-            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             FileNameFullNamePart = FileSurnames;
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             fmAddFullNamePart.Text = "Добавление Фамилии";
             fmAddFullNamePart.label1.Text = "Введите фамилию";
             fmAddFullNamePart.ShowDialog();
@@ -166,8 +164,8 @@ namespace FileWork_1
 
         private void btnMidlenameAdd_Click(object sender, EventArgs e)
         {
-            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             FileNameFullNamePart = FileMiddlenames;
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
             fmAddFullNamePart.Text = "Добавление Отчества";
             fmAddFullNamePart.label1.Text = "Введите отчество";
             fmAddFullNamePart.ShowDialog();
@@ -188,7 +186,24 @@ namespace FileWork_1
                 WriteCombobox(FileMiddlenames, cBMiddleName);
             }
         }
-
+        static public void AddFullNamePartInComboBox(string textForComboBoxtext)
+        {
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileNames)
+            {
+                FmMain.WriteCombobox(Program.fmMain.FileNames, Program.fmMain.GetCbName());
+                Program.fmMain.GetCbName().Text = textForComboBoxtext;
+            }
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileSurnames)
+            {
+                FmMain.WriteCombobox(Program.fmMain.FileSurnames, Program.fmMain.GetCbSurname());
+                Program.fmMain.GetCbSurname().Text = textForComboBoxtext;
+            }
+            if (FmMain.FileNameFullNamePart == Program.fmMain.FileMiddlenames)
+            {
+                FmMain.WriteCombobox(Program.fmMain.FileMiddlenames, Program.fmMain.GetCbMiddleName());
+                Program.fmMain.GetCbMiddleName().Text = textForComboBoxtext;
+            }
+        }
         private void RBFemaill_CheckedChanged(object sender, EventArgs e)
         {
             if(RBFemaill.Checked)
@@ -222,6 +237,33 @@ namespace FileWork_1
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(lBHumansList.SelectedItem.ToString());
+        }
+
+        private void btnSurnameRemove_Click(object sender, EventArgs e)
+        {
+            FileNameFullNamePart = FileSurnames;
+            FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
+            fmRemoveFullNameOrPart.Text = "Удаление Фамилии";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с такой фамилией";
+            fmRemoveFullNameOrPart.ShowDialog();
+        }
+
+        private void btnNameRemove_Click(object sender, EventArgs e)
+        {
+            FileNameFullNamePart = FileNames;
+            FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
+            fmRemoveFullNameOrPart.Text = "Удаление Имени";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким именем";
+            fmRemoveFullNameOrPart.ShowDialog();
+        }
+
+        private void btnMidlenameRemove_Click(object sender, EventArgs e)
+        {
+            FileNameFullNamePart = FileMiddlenames;
+            FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
+            fmRemoveFullNameOrPart.Text = "Удаление Отчества";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким отчеством";
+            fmRemoveFullNameOrPart.ShowDialog();
         }
     }
 }

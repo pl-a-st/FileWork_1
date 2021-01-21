@@ -34,23 +34,9 @@ namespace FileWork_1
         /// <summary>
         /// Определяет в какой комбобокс записать текущий, назначенный файл
         /// </summary>
-        private void AddFullNamePartInComboBox()
+        public void AddFullNamePartInComboBox()
         {
-            if (FmMain.FileNameFullNamePart == Program.fmMain.FileNames)
-            {
-                FmMain.WriteCombobox(Program.fmMain.FileNames, Program.fmMain.GetCbName());
-                Program.fmMain.GetCbName().Text = textBox1.Text;
-            }
-            if (FmMain.FileNameFullNamePart == Program.fmMain.FileSurnames)
-            {
-                FmMain.WriteCombobox(Program.fmMain.FileSurnames, Program.fmMain.GetCbSurname());
-                Program.fmMain.GetCbSurname().Text = textBox1.Text;
-            }
-            if (FmMain.FileNameFullNamePart == Program.fmMain.FileMiddlenames)
-            {
-                FmMain.WriteCombobox(Program.fmMain.FileMiddlenames, Program.fmMain.GetCbMiddleName());
-                Program.fmMain.GetCbMiddleName().Text = textBox1.Text;
-            }
+            FmMain.AddFullNamePartInComboBox(textBox1.Text);
         }
         /// <summary>
         /// Отправляет часть полного имени в соответствующий файл
@@ -63,10 +49,15 @@ namespace FileWork_1
             if (File.Exists(FmMain.FileNameFullNamePart))
             {
                 StreamReader streamReader = new StreamReader(FmMain.FileNameFullNamePart);
-
-                if (streamReader.ReadToEnd() != "")
+                streamReader.BaseStream.Seek(1, System.IO.SeekOrigin.End);
+                string text = streamReader.ReadLine();
+                if (File.ReadAllLines(FmMain.FileNameFullNamePart).Length > 0)//streamReader.ReadLine() != null)
                 {
                     nullString = false;
+                    if (File.ReadAllLines(FmMain.FileNameFullNamePart).Last() == "")
+                    {
+                        nullString = true;
+                    }
                 }
                 streamReader.DiscardBufferedData();
                 streamReader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
@@ -91,7 +82,14 @@ namespace FileWork_1
                 {
                     streamWriter.WriteLine();
                 }
-                streamWriter.Write(textBox1.Text);
+                if (File.ReadAllLines(FmMain.FileNameFullNamePart).Length>0)
+                {
+                    if(File.ReadAllLines(FmMain.FileNameFullNamePart).Last()=="0")
+                    {
+                        streamWriter.WriteLine();
+                    }
+                }
+                streamWriter.WriteLine(textBox1.Text);
                 streamWriter.Close();
             }
             catch

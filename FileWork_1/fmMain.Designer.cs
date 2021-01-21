@@ -186,6 +186,7 @@
             this.btnSurnameRemove.TabIndex = 4;
             this.btnSurnameRemove.Text = "-";
             this.btnSurnameRemove.UseVisualStyleBackColor = true;
+            this.btnSurnameRemove.Click += new System.EventHandler(this.btnSurnameRemove_Click);
             // 
             // btnNameRemove
             // 
@@ -195,6 +196,7 @@
             this.btnNameRemove.TabIndex = 4;
             this.btnNameRemove.Text = "-";
             this.btnNameRemove.UseVisualStyleBackColor = true;
+            this.btnNameRemove.Click += new System.EventHandler(this.btnNameRemove_Click);
             // 
             // btnMidlenameRemove
             // 
@@ -204,6 +206,7 @@
             this.btnMidlenameRemove.TabIndex = 4;
             this.btnMidlenameRemove.Text = "-";
             this.btnMidlenameRemove.UseVisualStyleBackColor = true;
+            this.btnMidlenameRemove.Click += new System.EventHandler(this.btnMidlenameRemove_Click);
             // 
             // FmMain
             // 

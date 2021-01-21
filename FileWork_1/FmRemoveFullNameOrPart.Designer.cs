@@ -28,31 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbListFullNamePart = new System.Windows.Forms.ListBox();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnSaveRemove = new System.Windows.Forms.Button();
+            this.btnCancelRemove = new System.Windows.Forms.Button();
+            this.chBRemoveAllPerson = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbListFullNamePart
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(20, 31);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(145, 238);
-            this.listBox1.TabIndex = 0;
+            this.lbListFullNamePart.FormattingEnabled = true;
+            this.lbListFullNamePart.Location = new System.Drawing.Point(12, 23);
+            this.lbListFullNamePart.Name = "lbListFullNamePart";
+            this.lbListFullNamePart.Size = new System.Drawing.Size(175, 238);
+            this.lbListFullNamePart.TabIndex = 0;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(198, 23);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(157, 26);
+            this.btnRemove.TabIndex = 1;
+            this.btnRemove.Text = "Удалить";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnSaveRemove
+            // 
+            this.btnSaveRemove.Location = new System.Drawing.Point(193, 235);
+            this.btnSaveRemove.Name = "btnSaveRemove";
+            this.btnSaveRemove.Size = new System.Drawing.Size(79, 26);
+            this.btnSaveRemove.TabIndex = 1;
+            this.btnSaveRemove.Text = "Сохранить";
+            this.btnSaveRemove.UseVisualStyleBackColor = true;
+            this.btnSaveRemove.Click += new System.EventHandler(this.btnSaveRemove_Click);
+            // 
+            // btnCancelRemove
+            // 
+            this.btnCancelRemove.Location = new System.Drawing.Point(278, 235);
+            this.btnCancelRemove.Name = "btnCancelRemove";
+            this.btnCancelRemove.Size = new System.Drawing.Size(79, 26);
+            this.btnCancelRemove.TabIndex = 1;
+            this.btnCancelRemove.Text = "Отменить";
+            this.btnCancelRemove.UseVisualStyleBackColor = true;
+            // 
+            // chBRemoveAllPerson
+            // 
+            this.chBRemoveAllPerson.AutoSize = true;
+            this.chBRemoveAllPerson.Location = new System.Drawing.Point(192, 191);
+            this.chBRemoveAllPerson.Name = "chBRemoveAllPerson";
+            this.chBRemoveAllPerson.Size = new System.Drawing.Size(80, 17);
+            this.chBRemoveAllPerson.TabIndex = 2;
+            this.chBRemoveAllPerson.Text = "checkBox1";
+            this.chBRemoveAllPerson.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Выберите строчку для удаления";
             // 
             // FmRemoveFullNameOrPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(367, 273);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chBRemoveAllPerson);
+            this.Controls.Add(this.btnCancelRemove);
+            this.Controls.Add(this.btnSaveRemove);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.lbListFullNamePart);
             this.Name = "FmRemoveFullNameOrPart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FmRemoveFullNameOrPart";
+            this.Load += new System.EventHandler(this.FmRemoveFullNameOrPart_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbListFullNamePart;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnSaveRemove;
+        private System.Windows.Forms.Button btnCancelRemove;
+        public System.Windows.Forms.CheckBox chBRemoveAllPerson;
+        private System.Windows.Forms.Label label1;
     }
 }
