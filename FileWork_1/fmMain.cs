@@ -83,6 +83,11 @@ namespace FileWork_1
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            AddLBHumansList(Constants.FILE_HUMANS_LIST);
+            RBMail.Checked=true;
+        }
+        public void AddLBHumansList(string fileName)
+        {
             lBHumansList.Items.Clear();
             if (File.Exists(Constants.FILE_HUMANS_LIST))
             {
@@ -94,8 +99,6 @@ namespace FileWork_1
                 }
                 streamReader.Close();
             }
-            
-            RBMail.Checked=true;
         }
         /// <summary>
         /// Запиcывает в передаваемый ComboBox данные из передаваемого файла
@@ -254,9 +257,10 @@ namespace FileWork_1
             FileNameFullNamePart = FileSurnames;
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Фамилии";
-            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с такой фамилией";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с удаленными фамилиями";
             fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите фамилию для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
+            AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
 
         private void btnNameRemove_Click(object sender, EventArgs e)
@@ -264,9 +268,10 @@ namespace FileWork_1
             FileNameFullNamePart = FileNames;
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Имени";
-            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким именем";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с удаленными именами";
             fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите имя для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
+            AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
 
         private void btnMidlenameRemove_Click(object sender, EventArgs e)
@@ -274,9 +279,10 @@ namespace FileWork_1
             FileNameFullNamePart = FileMiddlenames;
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Отчества";
-            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким отчеством";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с удаленными отчествами";
             fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите отчество для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
+            AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
     }
 }
