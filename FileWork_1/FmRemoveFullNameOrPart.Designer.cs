@@ -33,7 +33,7 @@
             this.btnSaveRemove = new System.Windows.Forms.Button();
             this.btnCancelRemove = new System.Windows.Forms.Button();
             this.chBRemoveAllPerson = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbListChangeRemove = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbListFullNamePart
@@ -72,6 +72,7 @@
             this.btnCancelRemove.TabIndex = 1;
             this.btnCancelRemove.Text = "Отменить";
             this.btnCancelRemove.UseVisualStyleBackColor = true;
+            this.btnCancelRemove.Click += new System.EventHandler(this.btnCancelRemove_Click);
             // 
             // chBRemoveAllPerson
             // 
@@ -83,21 +84,21 @@
             this.chBRemoveAllPerson.Text = "checkBox1";
             this.chBRemoveAllPerson.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lbListChangeRemove
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Выберите строчку для удаления";
+            this.lbListChangeRemove.AutoSize = true;
+            this.lbListChangeRemove.Location = new System.Drawing.Point(9, 7);
+            this.lbListChangeRemove.Name = "lbListChangeRemove";
+            this.lbListChangeRemove.Size = new System.Drawing.Size(170, 13);
+            this.lbListChangeRemove.TabIndex = 3;
+            this.lbListChangeRemove.Text = "Выберите строчку для удаления";
             // 
             // FmRemoveFullNameOrPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 273);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbListChangeRemove);
             this.Controls.Add(this.chBRemoveAllPerson);
             this.Controls.Add(this.btnCancelRemove);
             this.Controls.Add(this.btnSaveRemove);
@@ -119,6 +120,6 @@
         private System.Windows.Forms.Button btnSaveRemove;
         private System.Windows.Forms.Button btnCancelRemove;
         public System.Windows.Forms.CheckBox chBRemoveAllPerson;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lbListChangeRemove;
     }
 }

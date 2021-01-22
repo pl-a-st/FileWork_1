@@ -44,23 +44,23 @@ namespace FileWork_1
         /// <param name="textBoxText">часть имени для записи в файл</param>
         private void AddFullNamePartInFile(string textBoxText)
         {
-            bool nullString = true;
+            //bool nullString = true;
             List<string> listFullNamePart = new List<string>();
             if (File.Exists(FmMain.FileNameFullNamePart))
             {
                 StreamReader streamReader = new StreamReader(FmMain.FileNameFullNamePart);
-                streamReader.BaseStream.Seek(1, System.IO.SeekOrigin.End);
-                string text = streamReader.ReadLine();
-                if (File.ReadAllLines(FmMain.FileNameFullNamePart).Length > 0)//streamReader.ReadLine() != null)
-                {
-                    nullString = false;
-                    if (File.ReadAllLines(FmMain.FileNameFullNamePart).Last() == "")
-                    {
-                        nullString = true;
-                    }
-                }
-                streamReader.DiscardBufferedData();
-                streamReader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
+                //streamReader.BaseStream.Seek(1, System.IO.SeekOrigin.End);
+
+                //if (File.ReadAllLines(FmMain.FileNameFullNamePart).Length > 0)//streamReader.ReadLine() != null)
+                //{
+                //    nullString = false;
+                //    if (File.ReadAllLines(FmMain.FileNameFullNamePart).Last() == "")
+                //    {
+                //        nullString = true;
+                //    }
+                //}
+                //streamReader.DiscardBufferedData();
+                //streamReader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
                 while (!streamReader.EndOfStream)
                 {
                     listFullNamePart.Add(streamReader.ReadLine());
@@ -77,16 +77,23 @@ namespace FileWork_1
             }
             try
             {
-                StreamWriter streamWriter = new StreamWriter(FmMain.FileNameFullNamePart, true);
-                if (!nullString)
+                string lastStringInFile = "";
+                int stringCountInFile = 0;
+                if (File.Exists(FmMain.FileNameFullNamePart))
                 {
-                    streamWriter.WriteLine();
+                    stringCountInFile = File.ReadAllLines(FmMain.FileNameFullNamePart).Length;
+                    if (stringCountInFile > 0)
+                    {
+                        lastStringInFile = File.ReadAllLines(FmMain.FileNameFullNamePart).Last();
+                    }
                 }
-                if (File.ReadAllLines(FmMain.FileNameFullNamePart).Length>0)
+                StreamWriter streamWriter = new StreamWriter(FmMain.FileNameFullNamePart, true);
+                if (stringCountInFile > 0)
                 {
-                    if(File.ReadAllLines(FmMain.FileNameFullNamePart).Last()=="0")
+                    if(lastStringInFile == "")
                     {
                         streamWriter.WriteLine();
+                        streamWriter.Close();
                     }
                 }
                 streamWriter.WriteLine(textBox1.Text);

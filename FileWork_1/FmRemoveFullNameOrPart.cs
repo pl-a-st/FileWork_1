@@ -46,6 +46,21 @@ namespace FileWork_1
             }
             streamWriter.Close();
             FmMain.AddFullNamePartInComboBox("");
+            Close();
+        }
+
+        private void btnCancelRemove_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Действительно выйти? Если Вы нажмете 'Да' то все изменения будут утерянны ", "Отмена изменений", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+
+            }
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
+            
         }
     }
 }

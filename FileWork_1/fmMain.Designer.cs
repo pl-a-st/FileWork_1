@@ -41,10 +41,10 @@
             this.btnMidlenameAdd = new System.Windows.Forms.Button();
             this.RBMail = new System.Windows.Forms.RadioButton();
             this.RBFemaill = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnSurnameRemove = new System.Windows.Forms.Button();
             this.btnNameRemove = new System.Windows.Forms.Button();
             this.btnMidlenameRemove = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cBSurname
@@ -101,14 +101,14 @@
             // lBHumansList
             // 
             this.lBHumansList.FormattingEnabled = true;
-            this.lBHumansList.Location = new System.Drawing.Point(13, 177);
+            this.lBHumansList.Location = new System.Drawing.Point(10, 184);
             this.lBHumansList.Name = "lBHumansList";
-            this.lBHumansList.Size = new System.Drawing.Size(276, 134);
+            this.lBHumansList.Size = new System.Drawing.Size(300, 134);
             this.lBHumansList.TabIndex = 2;
             // 
             // btnWritePerson
             // 
-            this.btnWritePerson.Location = new System.Drawing.Point(217, 96);
+            this.btnWritePerson.Location = new System.Drawing.Point(204, 104);
             this.btnWritePerson.Name = "btnWritePerson";
             this.btnWritePerson.Size = new System.Drawing.Size(106, 50);
             this.btnWritePerson.TabIndex = 3;
@@ -149,7 +149,7 @@
             // RBMail
             // 
             this.RBMail.AutoSize = true;
-            this.RBMail.Location = new System.Drawing.Point(217, 36);
+            this.RBMail.Location = new System.Drawing.Point(204, 44);
             this.RBMail.Name = "RBMail";
             this.RBMail.Size = new System.Drawing.Size(72, 17);
             this.RBMail.TabIndex = 5;
@@ -160,23 +160,13 @@
             // RBFemaill
             // 
             this.RBFemaill.AutoSize = true;
-            this.RBFemaill.Location = new System.Drawing.Point(217, 59);
+            this.RBFemaill.Location = new System.Drawing.Point(204, 67);
             this.RBFemaill.Name = "RBFemaill";
             this.RBFemaill.Size = new System.Drawing.Size(77, 17);
             this.RBFemaill.TabIndex = 6;
             this.RBFemaill.Text = "Женщины";
             this.RBFemaill.UseVisualStyleBackColor = true;
             this.RBFemaill.CheckedChanged += new System.EventHandler(this.RBFemaill_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(74, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSurnameRemove
             // 
@@ -208,12 +198,21 @@
             this.btnMidlenameRemove.UseVisualStyleBackColor = true;
             this.btnMidlenameRemove.Click += new System.EventHandler(this.btnMidlenameRemove_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Творцы коммунизма";
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 406);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(325, 334);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.RBFemaill);
             this.Controls.Add(this.RBMail);
             this.Controls.Add(this.btnMidlenameAdd);
@@ -254,10 +253,10 @@
         private System.Windows.Forms.Button btnMidlenameAdd;
         private System.Windows.Forms.RadioButton RBMail;
         private System.Windows.Forms.RadioButton RBFemaill;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSurnameRemove;
         private System.Windows.Forms.Button btnNameRemove;
         private System.Windows.Forms.Button btnMidlenameRemove;
+        private System.Windows.Forms.Label label1;
     }
 }
 

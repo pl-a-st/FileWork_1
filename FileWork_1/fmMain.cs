@@ -123,6 +123,17 @@ namespace FileWork_1
 
         private void btnWritePerson_Click(object sender, EventArgs e)
         {
+            if (cBName.Text=="")
+            {
+                string nameToMessage = "Имя";
+                string surnameToMessage="";
+                if (cBSurname.Text=="")
+                {
+                    surnameToMessage = "Фамилия, ";
+                }
+                MessageBox.Show("Не указаны: " + surnameToMessage + nameToMessage + ". Данные не будут введены!");
+                return;
+            }
             string fullName = cBSurname.Text + " " + cBName.Text + " " + cBMiddleName.Text;
             foreach (string fullNameInLbHumanList in lBHumansList.Items)
             {
@@ -132,7 +143,6 @@ namespace FileWork_1
                     return;
                 }
             }
-
             try
             {
                 lBHumansList.Items.Add(fullName);
@@ -245,6 +255,7 @@ namespace FileWork_1
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Фамилии";
             fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с такой фамилией";
+            fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите фамилию для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
         }
 
@@ -254,6 +265,7 @@ namespace FileWork_1
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Имени";
             fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким именем";
+            fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите имя для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
         }
 
@@ -263,6 +275,7 @@ namespace FileWork_1
             FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
             fmRemoveFullNameOrPart.Text = "Удаление Отчества";
             fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с таким отчеством";
+            fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите отчество для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
         }
     }
