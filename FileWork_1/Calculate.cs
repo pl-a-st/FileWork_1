@@ -74,20 +74,31 @@ namespace FileWork_1
         }
         public static string SetPersonStingForFile(Person person)
         {
-            return person.Surname + " " + person.Name + " " + person.Middlename + " " + person.Age + " " + person.Function + " " + person.Salary;
+            return person.Surname + " " + person.Name + " " + person.Middlename + " " + person.Age + " " + person.Function + " " + person.Salary + " " + Convert.ToInt32(person.Gender);
         }
         public static string SetPersonStingForListBox(Person person)
         {
             return person.Surname + " " + person.Name + " " + person.Middlename + ", возраст: " + person.Age + ", должность:" + person.Function + ", зарплата: " + person.Salary;
         }
-        public static string SetPersonStingForListBox(string person)
+        public static string SetPersonStringForListBox(string person)
         {
             string[] personString = person.Split(' ');
-            if (personString.Length == 6)
+            if (personString.Length == Person.PERSONS_ATTRIBUTE_COUNT)
             {
                 return personString[0] + " " + personString[1] + " " + personString[2] + ", возраст: " + personString[3] + ", должность:" + personString[4] + ", зарплата: " + personString[5];
             }
             return "ошибка записи файла";
+        }
+        public static Person CreatePersonFromString(string personString)
+        {
+            Gender gender;
+            string[] listPerson = personString.Split(' ');
+            if (listPerson.Length == Person.PERSONS_ATTRIBUTE_COUNT)
+            {
+                gender = (Gender)Convert.ToInt32(listPerson[5]);
+                return new Person(listPerson[0], listPerson[1], listPerson[2], Convert.ToInt32(listPerson[3]), listPerson[4], Convert.ToInt32(listPerson[5]), gender);
+            }
+            return new Person();
         }
     }
 }

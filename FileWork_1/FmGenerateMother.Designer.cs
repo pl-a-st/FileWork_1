@@ -168,7 +168,7 @@
             this.lbxGeneratedPersons.FormattingEnabled = true;
             this.lbxGeneratedPersons.Location = new System.Drawing.Point(174, 42);
             this.lbxGeneratedPersons.Name = "lbxGeneratedPersons";
-            this.lbxGeneratedPersons.Size = new System.Drawing.Size(376, 264);
+            this.lbxGeneratedPersons.Size = new System.Drawing.Size(505, 264);
             this.lbxGeneratedPersons.TabIndex = 11;
             // 
             // btnCancell

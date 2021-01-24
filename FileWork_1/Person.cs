@@ -27,6 +27,11 @@ namespace FileWork_1
         { get; private set; }
         public int Salary
         { get; private set; }
+        public static int PERSONS_ATTRIBUTE_COUNT = 7;
+        public Person()
+        {
+
+        }
         public Person (string surname, string name, string middlename, int age, string function, int salary, Gender gender)
         {
             Surname = surname;

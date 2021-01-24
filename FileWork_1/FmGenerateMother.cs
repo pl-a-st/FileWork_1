@@ -64,13 +64,22 @@ namespace FileWork_1
                 btnChangePersone.Visible = false;
             }
         }
+        public List<Person> ListPerson
+        { get; private set; }
+
+        public void AddListPerson(Person person)
+        {
+            ListPerson.Add(person);
+        }
         public void FmGenerateMother_Load(object sender, EventArgs e)
         {
             SetGenerateOrChange(generateOrChange.generate);
             FormSettingsGenerateOrChange();
+            ListPerson = new List<Person>();
             foreach(string person in DAO.SetListStringFromFile(Constants.FILE_GENERATED_PERSONS))
             {
-                lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
+                lbxGeneratedPersons.Items.Add(Calculate.SetPersonStringForListBox(person));
+                AddListPerson(Calculate.CreatePersonFromString(person));
             }
         }
 
@@ -91,12 +100,7 @@ namespace FileWork_1
             SetGenerateOrChange(generateOrChange.change);
             FormSettingsGenerateOrChange();
         }
-        public List<Person> ListPerson
-        { get; private set;}
-        public void AddListPerson(Person person)
-        {
-            ListPerson.Add(person);
-        }
+        
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             Gender gender = Calculate.GenerateGender();
@@ -107,6 +111,7 @@ namespace FileWork_1
             int age = Calculate.SetRandomAge();
             int salary = Calculate.SetRandomSalary();
             Person person = new Person(surname, name, midllename, age, function, salary, gender);
+            AddListPerson(person);
             DAO.AddStringInToFile(Calculate.SetPersonStingForFile(person), Constants.FILE_GENERATED_PERSONS);
             lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
         }
