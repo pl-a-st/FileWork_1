@@ -170,6 +170,7 @@
             this.lbxGeneratedPersons.Name = "lbxGeneratedPersons";
             this.lbxGeneratedPersons.Size = new System.Drawing.Size(505, 264);
             this.lbxGeneratedPersons.TabIndex = 11;
+            this.lbxGeneratedPersons.SelectedIndexChanged += new System.EventHandler(this.lbxGeneratedPersons_SelectedIndexChanged);
             // 
             // btnCancell
             // 

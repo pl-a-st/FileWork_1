@@ -37,9 +37,11 @@ namespace FileWork_1
             {
                 foreach (Control textBox in this.Controls)
                 {
+                    List<TextBox> textBoxes = new List<TextBox>();
                     if (textBox is TextBox)
                     {
-                        textBox.Enabled = false;
+                        textBoxes.Add(textBox);
+                        textBox.ReadOnly = true;
                     }
                 }
                 lbxGeneratedPersons.Enabled = true;
@@ -114,6 +116,12 @@ namespace FileWork_1
             AddListPerson(person);
             DAO.AddStringInToFile(Calculate.SetPersonStingForFile(person), Constants.FILE_GENERATED_PERSONS);
             lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
+        }
+
+        private void lbxGeneratedPersons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexList = lbxGeneratedPersons.SelectedIndex;
+            tBName.Text = ListPerson[indexList].Name;
         }
     }
 }
