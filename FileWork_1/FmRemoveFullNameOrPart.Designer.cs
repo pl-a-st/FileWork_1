@@ -77,12 +77,13 @@
             // chBRemoveAllPerson
             // 
             this.chBRemoveAllPerson.AutoSize = true;
-            this.chBRemoveAllPerson.Location = new System.Drawing.Point(192, 191);
+            this.chBRemoveAllPerson.Location = new System.Drawing.Point(193, 201);
             this.chBRemoveAllPerson.Name = "chBRemoveAllPerson";
             this.chBRemoveAllPerson.Size = new System.Drawing.Size(80, 17);
             this.chBRemoveAllPerson.TabIndex = 2;
             this.chBRemoveAllPerson.Text = "checkBox1";
             this.chBRemoveAllPerson.UseVisualStyleBackColor = true;
+            this.chBRemoveAllPerson.CheckedChanged += new System.EventHandler(this.chBRemoveAllPerson_CheckedChanged);
             // 
             // lbListChangeRemove
             // 

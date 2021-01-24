@@ -45,6 +45,7 @@
             this.btnNameRemove = new System.Windows.Forms.Button();
             this.btnMidlenameRemove = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGenerator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cBSurname
@@ -207,11 +208,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Творцы коммунизма";
             // 
+            // btnGenerator
+            // 
+            this.btnGenerator.Location = new System.Drawing.Point(10, 328);
+            this.btnGenerator.Name = "btnGenerator";
+            this.btnGenerator.Size = new System.Drawing.Size(79, 25);
+            this.btnGenerator.TabIndex = 8;
+            this.btnGenerator.Text = "Генератор";
+            this.btnGenerator.UseVisualStyleBackColor = true;
+            this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 334);
+            this.ClientSize = new System.Drawing.Size(337, 365);
+            this.Controls.Add(this.btnGenerator);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RBFemaill);
             this.Controls.Add(this.RBMail);
@@ -257,6 +269,7 @@
         private System.Windows.Forms.Button btnNameRemove;
         private System.Windows.Forms.Button btnMidlenameRemove;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGenerator;
     }
 }
 

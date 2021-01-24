@@ -83,6 +83,7 @@ namespace FileWork_1
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Text = "Список истинных партийцев";
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
             RBMail.Checked=true;
         }
@@ -283,6 +284,12 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите отчество для удаления";
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
+        }
+
+        private void btnGenerator_Click(object sender, EventArgs e)
+        {
+            FmGenerateMother fmGenerateMother = new FmGenerateMother();
+            fmGenerateMother.ShowDialog();
         }
     }
 }

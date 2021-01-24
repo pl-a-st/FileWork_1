@@ -203,5 +203,10 @@ namespace FileWork_1
             }
             
         }
+
+        private void chBRemoveAllPerson_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
