@@ -15,6 +15,7 @@ namespace FileWork_1
         public static string FILE_NAME_WOOMEN = "Women_sNames.txt";
         public static string FILE_SURNAME_WOOMEN = "Women_sSurnames.txt";
         public static string FILE_MIDDLENAME_WOOMEN = "Women_sMiddlenames.txt";
+        public static string FILE_FUNCTION = "Functions.txt";
         public static string FILE_GENERATED_PERSONS = "Generated_Persons.txt";
     }
 }

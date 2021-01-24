@@ -11,7 +11,7 @@ namespace FileWork_1
         mail,
         femail
     }
-    class Person
+    public class Person
     {
         public Gender Gender
         { get; private set; }
@@ -25,9 +25,9 @@ namespace FileWork_1
         { get; private set; }
         public string Function
         { get; private set; }
-        public string Salary
+        public int Salary
         { get; private set; }
-        public Person (string surname, string name, string middlename, int age, string function, string salary, Gender gender)
+        public Person (string surname, string name, string middlename, int age, string function, int salary, Gender gender)
         {
             Surname = surname;
             Name = name;
@@ -47,7 +47,7 @@ namespace FileWork_1
         { Age = age; }
         public void SetFunction(string function)
         { Function = function; }
-        public void SetSalary(string salary)
+        public void SetSalary(int salary)
         { Salary = salary; }
     }
 }

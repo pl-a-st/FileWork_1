@@ -4,21 +4,22 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FileWork_1
 {
     class Calculate
     {
-        static private Random rnd;
-        static private StreamReader streamReader;
+        static private Random rnd = new Random();
+
         public static Gender GenerateGender()
         {
-            Gender gender = (Gender)rnd.Next(0, 1);
+            Gender gender = (Gender)rnd.Next(0, 2);
             return gender;
         }
         public static string SetFileName(Gender gender)
         {
-            string fileName="";
+            string fileName = "";
             if (gender == Gender.mail)
             {
                 fileName = Constants.FILE_NAME;
@@ -47,23 +48,46 @@ namespace FileWork_1
             string fileMiddeleName = "";
             if (gender == Gender.mail)
             {
-                fileMiddeleName = Constants.FILE_SURNAME;
+                fileMiddeleName = Constants.FILE_MIDDLENAME;
             }
             if (gender == Gender.femail)
             {
-                fileMiddeleName = Constants.FILE_SURNAME_WOOMEN;
+                fileMiddeleName = Constants.FILE_MIDDLENAME_WOOMEN;
             }
             return fileMiddeleName;
         }
-        public static List <string> SetListFullNamePart(string fullNamePart)
+        public static string SetRandomStringiInList(List<string> listString)
         {
-            List<string> listFullNamePart = new List<string>();
-            while (!streamReader.EndOfStream)
+            if (listString.Count == 0)
             {
-                listFullNamePart.Add(streamReader.ReadLine());
+                return "";
             }
-            streamReader.Close();
-            return listFullNamePart;
+            return listString[rnd.Next(0, listString.Count)];
+        }
+        public static int SetRandomAge()
+        {
+            return rnd.Next(18, 80);
+        }
+        public static int SetRandomSalary()
+        {
+            return rnd.Next(15000, 150000);
+        }
+        public static string SetPersonStingForFile(Person person)
+        {
+            return person.Surname + " " + person.Name + " " + person.Middlename + " " + person.Age + " " + person.Function + " " + person.Salary;
+        }
+        public static string SetPersonStingForListBox(Person person)
+        {
+            return person.Surname + " " + person.Name + " " + person.Middlename + ", возраст: " + person.Age + ", должность:" + person.Function + ", зарплата: " + person.Salary;
+        }
+        public static string SetPersonStingForListBox(string person)
+        {
+            string[] personString = person.Split(' ');
+            if (personString.Length == 6)
+            {
+                return personString[0] + " " + personString[1] + " " + personString[2] + ", возраст: " + personString[3] + ", должность:" + personString[4] + ", зарплата: " + personString[5];
+            }
+            return "ошибка записи файла";
         }
     }
 }

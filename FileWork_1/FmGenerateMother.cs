@@ -68,6 +68,10 @@ namespace FileWork_1
         {
             SetGenerateOrChange(generateOrChange.generate);
             FormSettingsGenerateOrChange();
+            foreach(string person in DAO.SetListStringFromFile(Constants.FILE_GENERATED_PERSONS))
+            {
+                lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -87,26 +91,24 @@ namespace FileWork_1
             SetGenerateOrChange(generateOrChange.change);
             FormSettingsGenerateOrChange();
         }
-
+        public List<Person> ListPerson
+        { get; private set;}
+        public void AddListPerson(Person person)
+        {
+            ListPerson.Add(person);
+        }
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            
-            Random rnd = new Random();
             Gender gender = Calculate.GenerateGender();
-            string surname;
-            string fileSurname=Calculate.SetFileSurName(gender);
-            string fileName = Calculate.SetFileSurName(gender);
-            string fileMiddlename=Calculate.SetFileMiddleName(gender);
-            string fullNamePart = "";
-            List<string> listFullNamePart = Calculate.SetListFullNamePart(fileSurname);
-            
-            
-            
-            
-            {//выбрать случайную часть полного имени
-                fullNamePart = listFullNamePart[rnd.Next(0, listFullNamePart.Count + 1)];
-            }//
-            //Person person = new Person(fullNamePart,);
+            string surname = Calculate.SetRandomStringiInList(DAO.SetListStringFromFile(Calculate.SetFileSurName(gender)));
+            string name = Calculate.SetRandomStringiInList(DAO.SetListStringFromFile(Calculate.SetFileName(gender)));
+            string midllename = Calculate.SetRandomStringiInList(DAO.SetListStringFromFile(Calculate.SetFileMiddleName(gender)));
+            string function = Calculate.SetRandomStringiInList(DAO.SetListStringFromFile(Constants.FILE_FUNCTION));
+            int age = Calculate.SetRandomAge();
+            int salary = Calculate.SetRandomSalary();
+            Person person = new Person(surname, name, midllename, age, function, salary, gender);
+            DAO.AddStringInToFile(Calculate.SetPersonStingForFile(person), Constants.FILE_GENERATED_PERSONS);
+            lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
         }
     }
 }

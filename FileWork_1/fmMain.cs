@@ -291,5 +291,9 @@ namespace FileWork_1
             FmGenerateMother fmGenerateMother = new FmGenerateMother();
             fmGenerateMother.ShowDialog();
         }
+        public static void CallMessageBox(string message)
+        {
+            MessageBox.Show(message);
+        }
     }
 }
