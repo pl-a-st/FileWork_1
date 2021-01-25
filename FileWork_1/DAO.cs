@@ -44,5 +44,22 @@ namespace FileWork_1
             }
             StreamWriter.Close();
         }
+        public static void WriteListInToFile(List<Person> listPerson,string filePath)
+        {
+            StreamWriter = new StreamWriter(filePath,false);
+            foreach (Person person in listPerson)
+            {
+                string stringPerson = Calculate.SetPersonStingForFile(person);
+                try
+                {
+                    StreamWriter.WriteLine(stringPerson);
+                }
+                catch
+                {
+                    FmMain.CallMessageBox("Не удалось сделать запись в файл: " + filePath);
+                }
+            }
+            StreamWriter.Close();
+        }
     }
 }

@@ -35,13 +35,12 @@ namespace FileWork_1
         {
             if (GenerateOrChange == generateOrChange.generate)
             {
-                foreach (Control textBox in this.Controls)
+                foreach (Control control in this.Controls)
                 {
-                    List<TextBox> textBoxes = new List<TextBox>();
-                    if (textBox is TextBox)
+                    if (control is TextBox)
                     {
-                        textBoxes.Add(textBox);
-                        textBox.ReadOnly = true;
+                        TextBox textBox1 = control as TextBox;
+                        textBox1.ReadOnly = true;
                     }
                 }
                 lbxGeneratedPersons.Enabled = true;
@@ -52,11 +51,12 @@ namespace FileWork_1
             }
             if (GenerateOrChange == generateOrChange.change)
             {
-                foreach (Control textBox in this.Controls)
+                foreach (Control control in this.Controls)
                 {
-                    if (textBox is TextBox)
+                    if (control is TextBox)
                     {
-                        textBox.Enabled = true;
+                        TextBox textBox1 = control as TextBox;
+                        textBox1.ReadOnly = false;
                     }
                 }
                 lbxGeneratedPersons.Enabled = false;
@@ -88,19 +88,49 @@ namespace FileWork_1
         private void btnSave_Click(object sender, EventArgs e)
         {
             SetGenerateOrChange(generateOrChange.generate);
+            {//Записать измененного персонажа
+                int indexList = lbxGeneratedPersons.SelectedIndex;
+                ListPerson[indexList].SetSurname(tBSurname.Text);
+                ListPerson[indexList].SetName(tBName.Text);
+                ListPerson[indexList].SetMiddlename(tBMiddlename.Text);
+                ListPerson[indexList].SetAge(Convert.ToInt32(tBAge.Text));
+                ListPerson[indexList].SetFunction(tBFuntion.Text);
+                ListPerson[indexList].SetSalary(Convert.ToInt32(tBSalary.Text));
+                DAO.WriteListInToFile(ListPerson, Constants.FILE_GENERATED_PERSONS);
+                lbxGeneratedPersons.Items.Clear();
+                foreach (string person in DAO.SetListStringFromFile(Constants.FILE_GENERATED_PERSONS))
+                {
+                    lbxGeneratedPersons.Items.Add(Calculate.SetPersonStringForListBox(person));
+                }
+                lbxGeneratedPersons.SelectedIndex = indexList;
+            }
             FormSettingsGenerateOrChange();
         }
 
         private void btnCancell_Click(object sender, EventArgs e)
         {
-            SetGenerateOrChange(generateOrChange.generate);
-            FormSettingsGenerateOrChange();
+            DialogResult result = MessageBox.Show("Действительно выйти? Если Вы нажмете 'Да' то все изменения будут утерянны ", "Отмена изменений", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+
+            }
+            if (result == DialogResult.Yes)
+            {
+                int indexList = lbxGeneratedPersons.SelectedIndex;
+                lbxGeneratedPersons.SelectedIndex = -1;
+                lbxGeneratedPersons.SelectedIndex = indexList;
+                SetGenerateOrChange(generateOrChange.generate);
+                FormSettingsGenerateOrChange();
+
+            }
+           
         }
 
         private void btnChangePersone_Click(object sender, EventArgs e)
         {
             SetGenerateOrChange(generateOrChange.change);
             FormSettingsGenerateOrChange();
+            
         }
         
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -117,11 +147,18 @@ namespace FileWork_1
             DAO.AddStringInToFile(Calculate.SetPersonStingForFile(person), Constants.FILE_GENERATED_PERSONS);
             lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
         }
-
         private void lbxGeneratedPersons_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indexList = lbxGeneratedPersons.SelectedIndex;
-            tBName.Text = ListPerson[indexList].Name;
+            if (indexList>=0)
+            {
+                tBSurname.Text= ListPerson[indexList].Surname;
+                tBName.Text = ListPerson[indexList].Name;
+                tBMiddlename.Text= ListPerson[indexList].Middlename;
+                tBAge.Text= Convert.ToString(ListPerson[indexList].Age);
+                tBFuntion.Text= ListPerson[indexList].Function;
+                tBSalary.Text = Convert.ToString(ListPerson[indexList].Salary);
+            }
         }
     }
 }

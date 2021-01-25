@@ -46,6 +46,10 @@
             this.btnMidlenameRemove = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGenerator = new System.Windows.Forms.Button();
+            this.btnFunctionAdd = new System.Windows.Forms.Button();
+            this.btnFunctionRemove = new System.Windows.Forms.Button();
+            this.lbFunction = new System.Windows.Forms.Label();
+            this.cBFunction = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cBSurname
@@ -102,7 +106,7 @@
             // lBHumansList
             // 
             this.lBHumansList.FormattingEnabled = true;
-            this.lBHumansList.Location = new System.Drawing.Point(10, 184);
+            this.lBHumansList.Location = new System.Drawing.Point(10, 224);
             this.lBHumansList.Name = "lBHumansList";
             this.lBHumansList.Size = new System.Drawing.Size(300, 134);
             this.lBHumansList.TabIndex = 2;
@@ -202,15 +206,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 168);
+            this.label1.Location = new System.Drawing.Point(7, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Творцы коммунизма";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnGenerator
             // 
-            this.btnGenerator.Location = new System.Drawing.Point(10, 328);
+            this.btnGenerator.Location = new System.Drawing.Point(10, 364);
             this.btnGenerator.Name = "btnGenerator";
             this.btnGenerator.Size = new System.Drawing.Size(79, 25);
             this.btnGenerator.TabIndex = 8;
@@ -218,11 +223,52 @@
             this.btnGenerator.UseVisualStyleBackColor = true;
             this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
             // 
+            // btnFunctionAdd
+            // 
+            this.btnFunctionAdd.Location = new System.Drawing.Point(140, 182);
+            this.btnFunctionAdd.Name = "btnFunctionAdd";
+            this.btnFunctionAdd.Size = new System.Drawing.Size(22, 23);
+            this.btnFunctionAdd.TabIndex = 11;
+            this.btnFunctionAdd.Text = "+";
+            this.btnFunctionAdd.UseVisualStyleBackColor = true;
+            this.btnFunctionAdd.Click += new System.EventHandler(this.btnFunctionAdd_Click);
+            // 
+            // btnFunctionRemove
+            // 
+            this.btnFunctionRemove.Location = new System.Drawing.Point(163, 182);
+            this.btnFunctionRemove.Name = "btnFunctionRemove";
+            this.btnFunctionRemove.Size = new System.Drawing.Size(22, 23);
+            this.btnFunctionRemove.TabIndex = 12;
+            this.btnFunctionRemove.Text = "-";
+            this.btnFunctionRemove.UseVisualStyleBackColor = true;
+            this.btnFunctionRemove.Click += new System.EventHandler(this.btnFunctionRemove_Click);
+            // 
+            // lbFunction
+            // 
+            this.lbFunction.AutoSize = true;
+            this.lbFunction.Location = new System.Drawing.Point(10, 164);
+            this.lbFunction.Name = "lbFunction";
+            this.lbFunction.Size = new System.Drawing.Size(65, 13);
+            this.lbFunction.TabIndex = 10;
+            this.lbFunction.Text = "Профессия";
+            // 
+            // cBFunction
+            // 
+            this.cBFunction.FormattingEnabled = true;
+            this.cBFunction.Location = new System.Drawing.Point(10, 184);
+            this.cBFunction.Name = "cBFunction";
+            this.cBFunction.Size = new System.Drawing.Size(121, 21);
+            this.cBFunction.TabIndex = 9;
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 365);
+            this.ClientSize = new System.Drawing.Size(337, 401);
+            this.Controls.Add(this.btnFunctionAdd);
+            this.Controls.Add(this.btnFunctionRemove);
+            this.Controls.Add(this.lbFunction);
+            this.Controls.Add(this.cBFunction);
             this.Controls.Add(this.btnGenerator);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RBFemaill);
@@ -270,6 +316,10 @@
         private System.Windows.Forms.Button btnMidlenameRemove;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerator;
+        private System.Windows.Forms.Button btnFunctionAdd;
+        private System.Windows.Forms.Button btnFunctionRemove;
+        private System.Windows.Forms.Label lbFunction;
+        private System.Windows.Forms.ComboBox cBFunction;
     }
 }
 

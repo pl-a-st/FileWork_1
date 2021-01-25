@@ -81,6 +81,10 @@ namespace FileWork_1
         {
             return cBMiddleName;
         }
+        public ComboBox GetCbFunction()
+        {
+            return cBFunction;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "Список истинных партийцев";
@@ -198,6 +202,7 @@ namespace FileWork_1
                 WriteCombobox(FileNames, cBName);
                 WriteCombobox(FileSurnames, cBSurname);
                 WriteCombobox(FileMiddlenames, cBMiddleName);
+                WriteCombobox(Constants.FILE_FUNCTION, cBFunction);
             }
         }
         static public void AddFullNamePartInComboBox(string textForComboBoxtext)
@@ -217,6 +222,11 @@ namespace FileWork_1
                 FmMain.WriteCombobox(Program.fmMain.FileMiddlenames, Program.fmMain.GetCbMiddleName());
                 Program.fmMain.GetCbMiddleName().Text = textForComboBoxtext;
             }
+            if(FmMain.FileNameFullNamePart==Constants.FILE_FUNCTION)
+            {
+                FmMain.WriteCombobox(Constants.FILE_FUNCTION, Program.fmMain.GetCbFunction());
+                Program.fmMain.GetCbFunction().Text = textForComboBoxtext;
+            }
         }
         private void RBFemaill_CheckedChanged(object sender, EventArgs e)
         {
@@ -227,6 +237,7 @@ namespace FileWork_1
                 WriteCombobox(FileNames, cBName);
                 WriteCombobox(FileSurnames, cBSurname);
                 WriteCombobox(FileMiddlenames, cBMiddleName);
+                WriteCombobox(Constants.FILE_FUNCTION, cBFunction);
             }
         }
         /// <summary>
@@ -294,6 +305,32 @@ namespace FileWork_1
         public static void CallMessageBox(string message)
         {
             MessageBox.Show(message);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFunctionAdd_Click(object sender, EventArgs e)
+        {
+            FileNameFullNamePart = Constants.FILE_FUNCTION;
+            FmAddFullNamePart fmAddFullNamePart = new FmAddFullNamePart();
+            fmAddFullNamePart.Text = "Добавление профессии";
+            fmAddFullNamePart.label1.Text = "Введите профессию";
+            fmAddFullNamePart.ShowDialog();
+        }
+
+        private void btnFunctionRemove_Click(object sender, EventArgs e)
+        {
+            FileNameFullNamePart = Constants.FILE_FUNCTION;
+            FmRemoveFullNameOrPart fmRemoveFullNameOrPart = new FmRemoveFullNameOrPart();
+            fmRemoveFullNameOrPart.Text = "Удаление профессии";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Text = "Удалить всех товарищей\n с удаленной профессией";
+            fmRemoveFullNameOrPart.lbListChangeRemove.Text = "Выберите профессию для удаления";
+            fmRemoveFullNameOrPart.chBRemoveAllPerson.Visible = false;
+            fmRemoveFullNameOrPart.ShowDialog();
+            AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
     }
 }
