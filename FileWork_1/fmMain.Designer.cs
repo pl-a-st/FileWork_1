@@ -287,6 +287,7 @@
             this.Controls.Add(this.cBMiddleName);
             this.Controls.Add(this.cBName);
             this.Controls.Add(this.cBSurname);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

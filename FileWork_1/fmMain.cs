@@ -142,7 +142,7 @@ namespace FileWork_1
                 MessageBox.Show("Не указаны: " + surnameToMessage + nameToMessage + ". Данные не будут введены!");
                 return;
             }
-            string fullName = cBSurname.Text + " " + cBName.Text + " " + cBMiddleName.Text;
+            string fullName = cBSurname.Text + "\t" + cBName.Text + "\t" + cBMiddleName.Text;
             foreach (string fullNameInLbHumanList in lBHumansList.Items)
             {
                 if (fullNameInLbHumanList == fullName)
@@ -258,7 +258,6 @@ namespace FileWork_1
                 SetFileMiddlenames(Constants.FILE_MIDDLENAME_WOOMEN);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(lBHumansList.SelectedItem.ToString());
@@ -331,6 +330,11 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.chBRemoveAllPerson.Visible = false;
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

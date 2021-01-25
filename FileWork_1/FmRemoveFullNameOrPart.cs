@@ -124,7 +124,7 @@ namespace FileWork_1
 
             for (int i = 0; i < listFullName.Count; i++)
             {
-                listFullNameInWords.Add(listFullName[i].Split(' '));
+                listFullNameInWords.Add(listFullName[i].Split('\t'));
             }
             int partNameInArry = 4;
             if (FmMain.FileNameFullNamePart == Constants.FILE_NAME || FmMain.FileNameFullNamePart == Constants.FILE_NAME_WOOMEN)
@@ -137,7 +137,7 @@ namespace FileWork_1
             }
             if (FmMain.FileNameFullNamePart == Constants.FILE_MIDDLENAME || FmMain.FileNameFullNamePart == Constants.FILE_MIDDLENAME_WOOMEN)
             {
-                partNameInArry = 3;
+                partNameInArry = 2;
             }
             for (int i = 0; i < listFullNameInWords.Count; i++)
             {

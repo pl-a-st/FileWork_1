@@ -105,6 +105,7 @@
             this.Controls.Add(this.btnSaveRemove);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lbListFullNamePart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FmRemoveFullNameOrPart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FmRemoveFullNameOrPart";

@@ -12,6 +12,11 @@ namespace FileWork_1
     {
         static private StreamReader streamReader;
         static private StreamWriter StreamWriter;
+        /// <summary>
+        /// Возращает List<string> из указанного файла, при неудаче зачтения файла возвращает пустой List
+        /// </summary>
+        /// <param name="filePath">Адрес файла</param>
+        /// <returns></returns>
         public static List<string> SetListStringFromFile(string filePath)
         {
             List<string> ListStringFromFile = new List<string>();
@@ -31,6 +36,11 @@ namespace FileWork_1
                 return ListStringFromFile;
             }
         }
+        /// <summary>
+        /// Записывает строчку в файл, дополняя его
+        /// </summary>
+        /// <param name="addingString">строка для записи</param>
+        /// <param name="filePath">адрес файла</param>
         public static void AddStringInToFile(string addingString,string filePath)
         {
             StreamWriter = new StreamWriter(filePath,true);
@@ -44,6 +54,11 @@ namespace FileWork_1
             }
             StreamWriter.Close();
         }
+        /// <summary>
+        /// Записывает List перосн в файл, затирая его содержание
+        /// </summary>
+        /// <param name="listPerson"> Лист персон</param>
+        /// <param name="filePath">адрес файла</param>
         public static void WriteListInToFile(List<Person> listPerson,string filePath)
         {
             StreamWriter = new StreamWriter(filePath,false);

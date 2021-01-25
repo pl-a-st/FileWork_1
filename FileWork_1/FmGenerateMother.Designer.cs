@@ -168,13 +168,13 @@
             this.lbxGeneratedPersons.FormattingEnabled = true;
             this.lbxGeneratedPersons.Location = new System.Drawing.Point(174, 42);
             this.lbxGeneratedPersons.Name = "lbxGeneratedPersons";
-            this.lbxGeneratedPersons.Size = new System.Drawing.Size(505, 264);
+            this.lbxGeneratedPersons.Size = new System.Drawing.Size(670, 264);
             this.lbxGeneratedPersons.TabIndex = 11;
             this.lbxGeneratedPersons.SelectedIndexChanged += new System.EventHandler(this.lbxGeneratedPersons_SelectedIndexChanged);
             // 
             // btnCancell
             // 
-            this.btnCancell.Location = new System.Drawing.Point(450, 320);
+            this.btnCancell.Location = new System.Drawing.Point(707, 320);
             this.btnCancell.Name = "btnCancell";
             this.btnCancell.Size = new System.Drawing.Size(140, 23);
             this.btnCancell.TabIndex = 12;
@@ -184,7 +184,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(304, 320);
+            this.btnSave.Location = new System.Drawing.Point(561, 320);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(140, 23);
             this.btnSave.TabIndex = 13;
@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 363);
+            this.ClientSize = new System.Drawing.Size(864, 360);
             this.Controls.Add(this.btnCancell);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lbxGeneratedPersons);
@@ -214,6 +214,7 @@
             this.Controls.Add(this.tBMiddlename);
             this.Controls.Add(this.tBName);
             this.Controls.Add(this.tBSurname);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FmGenerateMother";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generate";

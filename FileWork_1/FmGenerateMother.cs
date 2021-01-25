@@ -23,6 +23,10 @@ namespace FileWork_1
         /// </summary>
         public generateOrChange GenerateOrChange
         { get; private set; }
+        /// <summary>
+        /// Задает режим работы формы: "Генерация экземпляров Person" или внесение изменения в выбраный экземпляр
+        /// </summary>
+        /// <param name="generateOrChange">Enum с названием режима</param>
         public void SetGenerateOrChange(generateOrChange generateOrChange)
         {
             GenerateOrChange = generateOrChange;
@@ -31,6 +35,9 @@ namespace FileWork_1
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Применяет настройки формы в зависимости от заданого режима ее работы.
+        /// </summary>
         private void FormSettingsGenerateOrChange()
         {
             if (GenerateOrChange == generateOrChange.generate)
@@ -39,8 +46,8 @@ namespace FileWork_1
                 {
                     if (control is TextBox)
                     {
-                        TextBox textBox1 = control as TextBox;
-                        textBox1.ReadOnly = true;
+                        TextBox textBox = control as TextBox;
+                        textBox.ReadOnly = true;
                     }
                 }
                 lbxGeneratedPersons.Enabled = true;
@@ -55,8 +62,8 @@ namespace FileWork_1
                 {
                     if (control is TextBox)
                     {
-                        TextBox textBox1 = control as TextBox;
-                        textBox1.ReadOnly = false;
+                        TextBox textBox = control as TextBox;
+                        textBox.ReadOnly = false;
                     }
                 }
                 lbxGeneratedPersons.Enabled = false;
@@ -73,8 +80,18 @@ namespace FileWork_1
         {
             ListPerson.Add(person);
         }
+        private void CheckSelectedItemsForChange()
+        {
+            if (lbxGeneratedPersons.SelectedIndex>=0)
+            {
+                btnChangePersone.Enabled = true;
+                return;
+            }
+            btnChangePersone.Enabled = false;
+        }
         public void FmGenerateMother_Load(object sender, EventArgs e)
         {
+            CheckSelectedItemsForChange();
             SetGenerateOrChange(generateOrChange.generate);
             FormSettingsGenerateOrChange();
             ListPerson = new List<Person>();
@@ -84,12 +101,14 @@ namespace FileWork_1
                 AddListPerson(Calculate.CreatePersonFromString(person));
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Записывает измененный экземпляр Person в лист, файл и ListBox.
+        /// </summary>
+        private void WriteGhangedPersonFileListBox()
         {
-            SetGenerateOrChange(generateOrChange.generate);
-            {//Записать измененного персонажа
-                int indexList = lbxGeneratedPersons.SelectedIndex;
+            int indexList = lbxGeneratedPersons.SelectedIndex;
+            if(indexList>=0)
+            {
                 ListPerson[indexList].SetSurname(tBSurname.Text);
                 ListPerson[indexList].SetName(tBName.Text);
                 ListPerson[indexList].SetMiddlename(tBMiddlename.Text);
@@ -104,6 +123,11 @@ namespace FileWork_1
                 }
                 lbxGeneratedPersons.SelectedIndex = indexList;
             }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SetGenerateOrChange(generateOrChange.generate);
+            WriteGhangedPersonFileListBox();
             FormSettingsGenerateOrChange();
         }
 
@@ -149,6 +173,7 @@ namespace FileWork_1
         }
         private void lbxGeneratedPersons_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CheckSelectedItemsForChange();
             int indexList = lbxGeneratedPersons.SelectedIndex;
             if (indexList>=0)
             {
