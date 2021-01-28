@@ -126,6 +126,7 @@
             this.tBAge.Name = "tBAge";
             this.tBAge.Size = new System.Drawing.Size(140, 20);
             this.tBAge.TabIndex = 4;
+            this.tBAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBAge_KeyPress);
             // 
             // lblSalary
             // 
@@ -142,6 +143,8 @@
             this.tBSalary.Name = "tBSalary";
             this.tBSalary.Size = new System.Drawing.Size(140, 20);
             this.tBSalary.TabIndex = 7;
+            this.tBSalary.TextChanged += new System.EventHandler(this.tBSalary_TextChanged);
+            this.tBSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBSalary_KeyPress);
             // 
             // btnGenerate
             // 

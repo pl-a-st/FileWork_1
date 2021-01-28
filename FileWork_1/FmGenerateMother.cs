@@ -89,6 +89,14 @@ namespace FileWork_1
             }
             btnChangePersone.Enabled = false;
         }
+        private void CheckIsNumber(KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8) 
+            {
+                e.Handled = true;
+            }
+        }
         public void FmGenerateMother_Load(object sender, EventArgs e)
         {
             CheckSelectedItemsForChange();
@@ -184,6 +192,21 @@ namespace FileWork_1
                 tBFuntion.Text= ListPerson[indexList].Function;
                 tBSalary.Text = Convert.ToString(ListPerson[indexList].Salary);
             }
+        }
+
+        private void tBSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckIsNumber(e);
+        }
+
+        private void tBSalary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tBAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckIsNumber(e);
         }
     }
 }

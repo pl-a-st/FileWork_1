@@ -100,7 +100,7 @@ namespace FileWork_1
                 StreamReader streamReader = new StreamReader(Constants.FILE_HUMANS_LIST);
                 while (!streamReader.EndOfStream)
                 {
-                    lBHumansList.Items.Add(streamReader.ReadLine());
+                    lBHumansList.Items.Add(streamReader.ReadLine().Replace('\t',' '));
                 }
                 streamReader.Close();
             }
@@ -128,7 +128,6 @@ namespace FileWork_1
                 MessageBox.Show("Файл " + fileName + " отсуттвует, соответствующий список быдет пустым.");
             }
         }
-
         private void btnWritePerson_Click(object sender, EventArgs e)
         {
             if (cBName.Text=="")
@@ -142,10 +141,11 @@ namespace FileWork_1
                 MessageBox.Show("Не указаны: " + surnameToMessage + nameToMessage + ". Данные не будут введены!");
                 return;
             }
-            string fullName = cBSurname.Text + "\t" + cBName.Text + "\t" + cBMiddleName.Text;
+            string fullNameForlBHumanList = cBSurname.Text + " " + cBName.Text + " " + cBMiddleName.Text;
+            string fullNameForFile= cBSurname.Text + "\t" + cBName.Text + "\t" + cBMiddleName.Text;
             foreach (string fullNameInLbHumanList in lBHumansList.Items)
             {
-                if (fullNameInLbHumanList == fullName)
+                if (fullNameInLbHumanList == fullNameForlBHumanList)
                 {
                     MessageBox.Show("Такой товарищ уже внесен в список");
                     return;
@@ -153,14 +153,14 @@ namespace FileWork_1
             }
             try
             {
-                lBHumansList.Items.Add(fullName);
+                lBHumansList.Items.Add(fullNameForlBHumanList);
                 StreamWriter streamWriter = new StreamWriter(Constants.FILE_HUMANS_LIST, true);
-                streamWriter.WriteLine(fullName);
+                streamWriter.WriteLine(fullNameForFile);
                 streamWriter.Close();
             }
             catch
             {
-                MessageBox.Show("Не удалось сорхранить товарища. Файл для сохранения не доступен.");
+                MessageBox.Show("Не удалось сохранить товарища. Файл для сохранения не доступен.");
             }
         }
         private void btnNameAdd_Click(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace FileWork_1
             fmAddFullNamePart.ShowDialog();
         }
         /// <summary>
-        /// ПО поставленному RadianBaton устанавливаем пол, устанавливаем соответствующие файлы, записываем соответствующие кобобоксы
+        /// ПО поставленному RadianBaton устанавливаем пол, устанавливаем соответствующие файлы, записываем соответствующие комбоксы
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -262,7 +262,6 @@ namespace FileWork_1
         {
             MessageBox.Show(lBHumansList.SelectedItem.ToString());
         }
-
         private void btnSurnameRemove_Click(object sender, EventArgs e)
         {
             FileNameFullNamePart = FileSurnames;
@@ -273,7 +272,6 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
-
         private void btnNameRemove_Click(object sender, EventArgs e)
         {
             FileNameFullNamePart = FileNames;
@@ -284,7 +282,6 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
-
         private void btnMidlenameRemove_Click(object sender, EventArgs e)
         {
             FileNameFullNamePart = FileMiddlenames;
@@ -295,7 +292,6 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
-
         private void btnGenerator_Click(object sender, EventArgs e)
         {
             FmGenerateMother fmGenerateMother = new FmGenerateMother();
@@ -305,12 +301,10 @@ namespace FileWork_1
         {
             MessageBox.Show(message);
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnFunctionAdd_Click(object sender, EventArgs e)
         {
             FileNameFullNamePart = Constants.FILE_FUNCTION;
@@ -319,7 +313,6 @@ namespace FileWork_1
             fmAddFullNamePart.label1.Text = "Введите профессию";
             fmAddFullNamePart.ShowDialog();
         }
-
         private void btnFunctionRemove_Click(object sender, EventArgs e)
         {
             FileNameFullNamePart = Constants.FILE_FUNCTION;
@@ -331,7 +324,6 @@ namespace FileWork_1
             fmRemoveFullNameOrPart.ShowDialog();
             AddLBHumansList(Constants.FILE_HUMANS_LIST);
         }
-
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
