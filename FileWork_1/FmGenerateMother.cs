@@ -178,6 +178,7 @@ namespace FileWork_1
             AddListPerson(person);
             DAO.AddStringInToFile(Calculate.SetPersonStingForFile(person), Constants.FILE_GENERATED_PERSONS);
             lbxGeneratedPersons.Items.Add(Calculate.SetPersonStingForListBox(person));
+            lbxGeneratedPersons.SelectedIndex=lbxGeneratedPersons.Items.Count-1;
         }
         private void lbxGeneratedPersons_SelectedIndexChanged(object sender, EventArgs e)
         {
